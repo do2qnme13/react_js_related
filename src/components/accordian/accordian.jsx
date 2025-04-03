@@ -34,36 +34,41 @@ export default function Accordian() {
     console.log(selected, multiple);
 
     return (
-        <div className="wrapper">
-            <button onClick={toggleMultiSelect}>
-                {multiSelect ? "Disable Multi Select" : "Enable Multi Select"}
-            </button>
-            <div className="accordian">
-                {data && data.length > 0 ? (
-                    data.map((dataItem) => (
-                        <div className="item" key={dataItem.id}>
-                            <div
-                                className="title"
-                                onClick={
-                                    multiSelect
-                                        ? () => handleMultiSelect(dataItem.id)
-                                        : () => handleSelected(dataItem.id)
-                                }
-                            >
-                                <h3>{dataItem.question}</h3>
-                                <span>+</span>
-                            </div>
-                            {selected === dataItem.id ||
-                            multiple.indexOf(dataItem.id) !== -1 ? (
-                                <div className="answer">
-                                    <p>{dataItem.answer}</p>
+        <div className="container">
+            <div className="wrapper">
+                <button onClick={toggleMultiSelect}>
+                    {multiSelect
+                        ? "Disable Multi Select"
+                        : "Enable Multi Select"}
+                </button>
+                <div className="accordian">
+                    {data && data.length > 0 ? (
+                        data.map((dataItem) => (
+                            <div className="item" key={dataItem.id}>
+                                <div
+                                    className="title"
+                                    onClick={
+                                        multiSelect
+                                            ? () =>
+                                                  handleMultiSelect(dataItem.id)
+                                            : () => handleSelected(dataItem.id)
+                                    }
+                                >
+                                    <h3>{dataItem.question}</h3>
+                                    <span>+</span>
                                 </div>
-                            ) : null}
-                        </div>
-                    ))
-                ) : (
-                    <div>No Data Found !</div>
-                )}
+                                {selected === dataItem.id ||
+                                multiple.indexOf(dataItem.id) !== -1 ? (
+                                    <div className="answer">
+                                        <p>{dataItem.answer}</p>
+                                    </div>
+                                ) : null}
+                            </div>
+                        ))
+                    ) : (
+                        <div>No Data Found !</div>
+                    )}
+                </div>
             </div>
         </div>
     );
