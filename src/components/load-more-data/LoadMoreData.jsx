@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./LoadMoreData.css";
+
 export default function LoadMoreData() {
     const [loading, setLoading] = useState(false);
     const [products, setProducts] = useState([]);
@@ -14,12 +15,12 @@ export default function LoadMoreData() {
                     count === 0 ? 0 : count * 20
                 }`
             );
-            console.log("Response", response);
             const data = await response.json();
-            console.log("data", data);
+            // console.log("data", data);
             if (data && data.products && data.products.length) {
                 setLoading(false);
                 setProducts((prevData) => [...prevData, ...data.products]);
+                // console.log("count ==>", products.length);
             }
         } catch (e) {
             setError(e.message);
@@ -36,9 +37,33 @@ export default function LoadMoreData() {
     };
     console.log("products", products);
 
+    if (loading) {
+        return <div>Loading Data! Please Wait.</div>;
+    }
+
+    if (error) {
+        return <div>Error While Fetching!</div>;
+    }
+
     return (
-        <div>
-            <button onClick={() => handleCount()}>Load More Data</button>
+        <div className="contianer">
+            <div className="product-container">
+                {products && products.length
+                    ? products.map((product, index) => (
+                          <div key={index} className="info-container">
+                              <img src={product.thumbnail} />
+                              <p>{product.title}</p>
+                          </div>
+                      ))
+                    : null}
+            </div>
+            <button
+                disabled={products.length == 100 ? true : false}
+                className="fetch-btn"
+                onClick={() => handleCount()}
+            >
+                Load More Data
+            </button>
         </div>
     );
 }
