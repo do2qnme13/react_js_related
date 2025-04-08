@@ -1,4 +1,4 @@
-// import "./App.css";
+import "./App.css";
 import Accordian from "./components/accordian/Accordian";
 import ImageSlider from "./components/image-slider/ImageSlider";
 import LoadMoreData from "./components/load-more-data/LoadMoreData";
