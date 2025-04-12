@@ -1,0 +1,20 @@
+.light-dark-container {
+    width: 95vw;
+    height: 90vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2rem;
+    border: 1px solid black;
+    margin: 5px auto;
+    border-radius: 10px;
+}
+
+.light-dark-container.dark {
+    background-color: #333;
+    color: #fff;
+}
+.light-dark-container.white {
+    background-color: #fff;
+    color: #333;
+}
