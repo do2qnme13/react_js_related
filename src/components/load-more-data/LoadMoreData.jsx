@@ -35,7 +35,7 @@ export default function LoadMoreData() {
     const handleCount = () => {
         setCount((prevCount) => prevCount + 1);
     };
-    console.log("products", products);
+    // console.log("products", products);
 
     if (loading) {
         return <div>Loading Data! Please Wait.</div>;
