@@ -1,0 +1,28 @@
+.indicator-container {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.scroll-indicator-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: green;
+}
+
+.scroll-indicator-container {
+    width: 100vw;
+    height: 10px;
+    background-color: rgb(243, 3, 3);
+    position: fixed;
+    top: 0;
+}
+
+.scroll-indicator {
+    height: 100%;
+    background-color: rgb(127, 9, 246);
+}
